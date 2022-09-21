@@ -1,0 +1,21 @@
+version: '3'
+services:
+    mysql:
+        build: ./mysql
+        image: "mysql:latest"
+        command: 
+            --default-authentication-plugin=mysql_native_password
+            --character-set-server=utf8mb4
+            --collation-server=utf8mb4_general_ci
+        environment:
+            MYSQL_RANDOM_ROOT_PASSWORD: yes
+            MYSQL_USER: test
+            MYSQL_PASSWORD: 123456
+            MYSQL_DATABASE: users
+            TZ: Asia/Shanghai
+        restart: on-failure
+        volumes:
+            - "./startup/conf/my.cnf:/etc/my.cnf"
+            - "./startup/init:/docker-entrypoint-initdb.d/"
+        ports:
+            - "33060:3306"
