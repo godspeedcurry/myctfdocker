@@ -1,0 +1,10 @@
+version: '3'
+services:
+    src:
+        image: postgres:latest
+        tty: true
+        ports:
+            - "15432:5432"
+        restart: on-failure
+        environment:
+            POSTGRES_PASSWORD: 123456
