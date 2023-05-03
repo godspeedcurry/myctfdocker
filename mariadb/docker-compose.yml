@@ -1,0 +1,13 @@
+version: '3'
+services:
+    mysql:
+        image: 'mariadb:10.3.38'
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: test
+            MYSQL_PASSWORD: 123456
+            MYSQL_DATABASE: ctf
+            TZ: Asia/Shanghai
+        restart: on-failure
+        ports:
+            - "33063:3306"

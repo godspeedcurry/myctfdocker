@@ -12,7 +12,7 @@ services:
             MYSQL_RANDOM_ROOT_PASSWORD: yes
             MYSQL_USER: test
             MYSQL_PASSWORD: 123456
-            MYSQL_DATABASE: ctf
+            MYSQL_DATABASE: db
             TZ: Asia/Shanghai
         restart: on-failure
         ports:
