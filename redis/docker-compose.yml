@@ -3,8 +3,8 @@ services:
     src:
         image: 'redis:6.2'
         command: >
-          --requirepass 'redis_means_Remote_D1ctionary_Server'
+          --requirepass '123456'
         tty: true
         ports:
-            - "16379:6379"
+            - "6379:6379"
         restart: on-failure
