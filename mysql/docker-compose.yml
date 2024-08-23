@@ -1,18 +1,14 @@
-version: '3'
-services:
-    mysql:
-        build: ./startup
-        command: 
-            --default-authentication-plugin=mysql_native_password
-            --character-set-server=utf8mb4
-            --collation-server=utf8mb4_general_ci
-            --plugin-dir=/tmp
-            --secure-file-priv=/tmp
-        environment:
-            MYSQL_USER: test
-            MYSQL_PASSWORD: 123456
-            MYSQL_DATABASE: ctf
-            TZ: Asia/Shanghai
-        restart: on-failure
-        ports:
-            - "3306:3306"
+version: '3.8'  
+
+services:  
+  db:  
+    image: mysql:latest  
+    container_name: mysql_container  
+    environment:  
+      MYSQL_ROOT_PASSWORD: 123456  
+      MYSQL_DATABASE: test  
+    ports:  
+      - "3306:3306"  
+    volumes:  
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql  
+    restart: unless-stopped  
