@@ -1,0 +1,18 @@
+services:
+  samba:
+    image: dperson/samba
+    environment:
+      TZ: 'Asia/Shanghai'
+    networks:
+      - default
+    ports:
+      - "445:445/tcp"
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - /Volumes/abc:/mnt/shared:z
+    command: '-s "shared;/mnt/shared;yes;yes;yes;all" -u "test;123456" -p'
+
+networks:
+  default:

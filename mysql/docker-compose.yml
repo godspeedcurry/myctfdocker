@@ -10,5 +10,6 @@ services:
     ports:  
       - "3306:3306"  
     volumes:  
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql  
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf    
     restart: unless-stopped  

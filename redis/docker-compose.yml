@@ -1,7 +1,7 @@
 version: '3'
 services:
     src:
-        image: 'redis:6.2'
+        image: 'redis:6.2.10-alpine'
         command: >
           --requirepass '123456'
         tty: true
